@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxera&Outfits — Premium Jerseys</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- MENU OVERLAY BACKGROUND -->
+<div class="mobile-menu-overlay" id="menuOverlay" onclick="closeMobileMenu()"></div>
+
+<!-- SIDE PANEL MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Cerrar menú"><i class="fa-solid fa-xmark"></i></button>
+  <div class="mobile-menu-title">Categorías</div>
+  <a href="#" onclick="switchCat('mexico');closeMobileMenu()" data-menucat="mexico"><span>🇲🇽</span> México</a>
+  <a href="#" onclick="switchCat('leon');closeMobileMenu()" data-menucat="leon"><span>🦁</span> Club León</a>
+  <a href="#" onclick="switchCat('chivas');closeMobileMenu()" data-menucat="chivas"><span>🐐</span> Chivas</a>
+  <a href="#" onclick="switchCat('america');closeMobileMenu()" data-menucat="america"><span>🦅</span> América</a>
+  <a href="#" onclick="switchCat('realmadrid');closeMobileMenu()" data-menucat="realmadrid"><span>👑</span> Real Madrid</a>
+  <a href="#" onclick="switchCat('barcelona');closeMobileMenu()" data-menucat="barcelona"><span>🔵🔴</span> Barcelona</a>
+  <a href="#" onclick="switchCat('colombia');closeMobileMenu()" data-menucat="colombia"><span>🇨🇴</span> Colombia</a>
+  <a href="#" onclick="switchCat('espana');closeMobileMenu()" data-menucat="espana"><span>🇪🇸</span> España</a>
+  <a href="#" onclick="switchCat('f1');closeMobileMenu()" data-menucat="f1"><span>🏎️</span> F1</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+  <div class="header-logo" onclick="showCatalog()">
+    <svg viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M20 2L26 12L36 8L32 20H8L4 8L14 12L20 2Z" fill="#D4AF37"/>
+      <rect x="8" y="22" width="24" height="4" rx="2" fill="#D4AF37"/>
+      <rect x="10" y="28" width="20" height="3" rx="1.5" fill="#D4AF37"/>
+    </svg>
+    <div class="header-logo-text">Luxera<span>&Outfits</span></div>
+  </div>
+
+  <div class="header-search-bar">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <input type="text" id="mainSearchInput" placeholder="Busca jersey, equipo, retro..." autocomplete="off" />
+  </div>
+
+  <div class="header-actions">
+    <button class="hamburger" onclick="toggleMobileMenu()" aria-label="Menú">
+      <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+    </button>
+  </div>
+</header>
+
+<!-- CATEGORY BAR -->
+<div class="category-bar">
+  <ul class="category-tabs">
+    <li><button class="active" onclick="switchCat('mexico')" data-cat="mexico">México</button></li>
+    <li><button onclick="switchCat('leon')" data-cat="leon">Club León</button></li>
+    <li><button onclick="switchCat('chivas')" data-cat="chivas">Chivas</button></li>
+    <li><button onclick="switchCat('america')" data-cat="america">América</button></li>
+    <li><button onclick="switchCat('realmadrid')" data-cat="realmadrid">Real Madrid</button></li>
+    <li><button onclick="switchCat('barcelona')" data-cat="barcelona">Barcelona</button></li>
+    <li><button onclick="switchCat('colombia')" data-cat="colombia">Colombia</button></li>
+    <li><button onclick="switchCat('espana')" data-cat="espana">España</button></li>
+    <li><button onclick="switchCat('f1')" data-cat="f1">F1</button></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="heroSection">
+  <p class="hero-eyebrow">Colección Premium 2026</p>
+  <h1>Viste con <em>pasión</em><br>y estilo propio</h1>
+  <p>Jerseys auténticos y ediciones especiales para el verdadero aficionado. Calidad premium, entregas en todo México.</p>
+  <a href="https://wa.link/sgd8bb" target="_blank" class="hero-cta">
+    <i class="fa-brands fa-whatsapp"></i> Contáctanos por WhatsApp
+  </a>
+</section>
+
+<!-- MAIN CATALOG -->
+<main id="catalogMain">
+
+  <!-- NO RESULTS MESSAGE -->
+  <div class="no-results" id="noResults">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <p>No encontramos resultados</p>
+    <span>Intenta con otro término: "Real Madrid", "Retro", "Chivas"…</span>
+  </div>
+
+  <!-- MÉXICO -->
+  <section class="cat-section active" id="cat-mexico">
+    <div class="section-header">
+      <h2>México</h2>
+      <span>Selección Nacional</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('mex1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/KpckPxFr/image.png" alt="Jersey Local México 26" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Adidas Jersey Local Selección Nacional de México 26</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('mex2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/zhZ8SgMx/Captura-de-pantalla-2026-05-02-a-la-s-11-50-26-a-m.png" alt="Jersey Visitante México 26" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Adidas Jersey Visitante Selección Nacional de México 26</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('mex3')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/Q3GZxw8r/Captura-de-pantalla-2026-05-02-a-la-s-12-02-34-p-m.png" alt="Jersey Negro Manga Larga México" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Jersey Negro Manga Larga Selección Nacional de México <span class="product-soon">SOON</span></div>
+          <div class="product-price">$600 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('mex4')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/5xXBhwrk/Captura-de-pantalla-2026-05-02-a-la-s-12-07-53-p-m.png" alt="Jersey Retro México 86" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Adidas Jersey Retro Selección Nacional de México 86</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('mex5')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/99z9PqZ1/Captura-de-pantalla-2026-05-02-a-la-s-12-11-21-p-m.png" alt="Jersey Retro México 98" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Adidas Jersey Retro Selección Nacional de México 98 <span class="product-soon">SOON</span></div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('mex6')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/dwxMKLcN/Captura-de-pantalla-2026-05-02-a-la-s-12-13-22-p-m.png" alt="Chamarra México 86" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">México</div>
+          <div class="product-title">Chamarra Adidas México 86 <span class="product-soon">SOON</span></div>
+          <div class="product-price">$1,899 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLUB LEÓN -->
+  <section class="cat-section" id="cat-leon">
+    <div class="section-header">
+      <h2>Club León</h2>
+      <span>La Fiera</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('leon4')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/F4gJJdJM/Captura-de-pantalla-2026-05-02-a-la-s-12-18-06-p-m.png" alt="León Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Club León</div>
+          <div class="product-title">Charly Jersey Local Club León</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('leon2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/HDk7jCh2/Captura-de-pantalla-2026-05-02-a-la-s-12-22-29-p-m.png" alt="León Visitante" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Club León</div>
+          <div class="product-title">Charly Jersey Visitante Club León</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('leon3')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/21bY70YW/Captura-de-pantalla-2026-05-02-a-la-s-12-24-33-p-m.png" alt="León Mundial de Clubes" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Club León</div>
+          <div class="product-title">Charly Jersey Mundial de Clubes Club León</div>
+          <div class="product-price">$600 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHIVAS -->
+  <section class="cat-section" id="cat-chivas">
+    <div class="section-header">
+      <h2>Chivas</h2>
+      <span>Rebaño Sagrado</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('chivas1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/35W2NdwN/Captura-de-pantalla-2026-05-02-a-la-s-12-31-36-p-m.png" alt="Chivas Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Chivas</div>
+          <div class="product-title">Puma Jersey Local Chivas</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('chivas2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/C382ZmmY/Captura-de-pantalla-2026-05-02-a-la-s-12-34-16-p-m.png" alt="Chivas Retro 99" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Chivas</div>
+          <div class="product-title">Atletica Jersey '99 Chivas</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AMÉRICA -->
+  <section class="cat-section" id="cat-america">
+    <div class="section-header">
+      <h2>América</h2>
+      <span>Las Águilas</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('ame1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/C5Z9Brk2/Captura-de-pantalla-2026-05-02-a-la-s-12-37-52-p-m.png" alt="América Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">América</div>
+          <div class="product-title">Adidas Jersey Local Club América</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('ame2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/KYGmhp7/Captura-de-pantalla-2026-05-02-a-la-s-12-38-26-p-m.png" alt="América Visitante" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">América</div>
+          <div class="product-title">Adidas Jersey Visitante Club América</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REAL MADRID -->
+  <section class="cat-section" id="cat-realmadrid">
+    <div class="section-header">
+      <h2>Real Madrid</h2>
+      <span>Los Merengues</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('rm1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/8Dsxx85z/Captura-de-pantalla-2026-05-02-a-la-s-12-59-57-p-m.png" alt="Real Madrid Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Real Madrid</div>
+          <div class="product-title">Adidas Jersey Real Madrid Local</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('rm2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/4ggh5t0D/Captura-de-pantalla-2026-05-02-a-la-s-1-00-35-p-m.png" alt="Real Madrid 2011-12" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Real Madrid</div>
+          <div class="product-title">Adidas Jersey Real Madrid 2011-12 (Detalles Dorados)</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('rm3')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/YFYSdhTF/Captura-de-pantalla-2026-05-02-a-la-s-1-01-36-p-m.png" alt="Real Madrid 1986-87" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Real Madrid</div>
+          <div class="product-title">Adidas Jersey Real Madrid 1986-87</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BARCELONA -->
+  <section class="cat-section" id="cat-barcelona">
+    <div class="section-header">
+      <h2>Barcelona</h2>
+      <span>Més que un club</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('barca1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/qYhXLHn4/Captura-de-pantalla-2026-05-02-a-la-s-12-50-07-p-m.png" alt="Barcelona Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Barcelona</div>
+          <div class="product-title">Nike Jersey Local Barcelona</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('barca2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/PZhbmC6m/Captura-de-pantalla-2026-05-02-a-la-s-12-51-37-p-m.png" alt="Barcelona Retro 92-95" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Barcelona</div>
+          <div class="product-title">Nike Jersey Retro 92/95 Barcelona Home</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('barca3')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/4ZTLV4Xm/Captura-de-pantalla-2026-05-02-a-la-s-12-52-35-p-m.png" alt="Barcelona Travis Scott" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Barcelona</div>
+          <div class="product-title">Barcelona 2000/01 Home Retro Skeleton Travis Scott Edition</div>
+          <div class="product-price">$650 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOMBIA -->
+  <section class="cat-section" id="cat-colombia">
+    <div class="section-header">
+      <h2>Colombia</h2>
+      <span>Los Cafeteros</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('col1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/7x4kZCBy/Captura-de-pantalla-2026-05-02-a-la-s-1-17-36-p-m.png" alt="Colombia Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">Colombia</div>
+          <div class="product-title">Adidas Jersey Colombia Local</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPAÑA -->
+  <section class="cat-section" id="cat-espana">
+    <div class="section-header">
+      <h2>España</h2>
+      <span>La Roja</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('esp1')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/zhbkFtJt/Captura-de-pantalla-2026-05-02-a-la-s-1-11-06-p-m.png" alt="España Visitante" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">España</div>
+          <div class="product-title">Adidas Jersey España Visitante</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('esp2')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/whnXDyzc/Captura-de-pantalla-2026-05-02-a-la-s-1-11-55-p-m.png" alt="España Local" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">España</div>
+          <div class="product-title">Adidas Jersey España Local</div>
+          <div class="product-price">$500 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- F1 -->
+  <section class="cat-section" id="cat-f1">
+    <div class="section-header">
+      <h2>F1</h2>
+      <span>Lifestyle Racing</span>
+    </div>
+    <div class="product-grid">
+      <div class="product-card" onclick="openDetail('f11')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/6JH36Cxz/Captura-de-pantalla-2026-05-02-a-la-s-1-21-28-p-m.png" alt="Tommy Hilfiger x Cadillac F1 Blanca" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">F1</div>
+          <div class="product-title">Camiseta Réplica Logo Blanco Tommy Hilfiger x Cadillac F1 Team</div>
+          <div class="product-price">$550 MXN</div>
+        </div>
+      </div>
+      <div class="product-card" onclick="openDetail('f12')">
+        <div class="product-img-wrap">
+          <img src="https://i.ibb.co/HTmDh0QR/Captura-de-pantalla-2026-05-02-a-la-s-6-05-44-p-m.png" alt="Tommy Hilfiger x Cadillac Polo Negro" loading="lazy" />
+        </div>
+        <div class="product-info">
+          <div class="product-category">F1</div>
+          <div class="product-title">Unisex Tommy Hilfiger x Cadillac F1 Team Black Replica Polo</div>
+          <div class="product-price">$550 MXN</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="28" height="24" viewBox="0 0 40 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 2L26 12L36 8L32 20H8L4 8L14 12L20 2Z" fill="#D4AF37"/>
+          <rect x="8" y="22" width="24" height="4" rx="2" fill="#D4AF37"/>
+          <rect x="10" y="28" width="20" height="3" rx="1.5" fill="#D4AF37"/>
+        </svg>
+        Luxera<span>&Outfits</span>
+      </div>
+      <p>Jerseys premium y ediciones especiales de tus equipos favoritos. Pasión, calidad y estilo en cada prenda.</p>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/luxera_mx/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61587248820048" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.link/sgd8bb" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        <a href="mailto:emilianogd24@gmail.com" aria-label="Correo"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Categorías</h4>
+      <ul>
+        <li><a href="#" onclick="switchCat('mexico')">México</a></li>
+        <li><a href="#" onclick="switchCat('leon')">Club León</a></li>
+        <li><a href="#" onclick="switchCat('chivas')">Chivas</a></li>
+        <li><a href="#" onclick="switchCat('america')">América</a></li>
+        <li><a href="#" onclick="switchCat('realmadrid')">Real Madrid</a></li>
+        <li><a href="#" onclick="switchCat('barcelona')">Barcelona</a></li>
+        <li><a href="#" onclick="switchCat('colombia')">Colombia</a></li>
+        <li><a href="#" onclick="switchCat('espana')">España</a></li>
+        <li><a href="#" onclick="switchCat('f1')">F1</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="https://wa.link/sgd8bb" target="_blank"><i class="fa-brands fa-whatsapp" style="color:var(--gold);margin-right:6px"></i>WhatsApp</a></li>
+        <li><a href="https://www.instagram.com/luxera_mx/" target="_blank"><i class="fa-brands fa-instagram" style="color:var(--gold);margin-right:6px"></i>@luxera_mx</a></li>
+        <li><a href="https://www.facebook.com/profile.php?id=61587248820048" target="_blank"><i class="fa-brands fa-facebook-f" style="color:var(--gold);margin-right:6px"></i>Facebook</a></li>
+        <li><a href="mailto:emilianogd24@gmail.com"><i class="fa-solid fa-envelope" style="color:var(--gold);margin-right:6px"></i>emilianogd24@gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-map">
+    <h4><i class="fa-solid fa-location-dot" style="margin-right:6px"></i>Encuéntranos en León, Guanajuato</h4>
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.8!2d-101.6917!3d21.1219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842bbf3b04c8b135%3A0x4c19c1d37d5c4e9b!2sAle%20Donato%20for%20Art%20%26%20Beauty!5e0!3m2!1ses!2smx!4v1714660000000!5m2!1ses!2smx"
+      width="100%"
+      height="280"
+      style="width:100%;border-radius:12px;border:none;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ale Donato for Art &amp; Beauty — León, Guanajuato">
+    </iframe>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Luxera&Outfits. Todos los derechos reservados.</p>
+    <div class="shipping-badge">
+      <i class="fa-solid fa-truck"></i>
+      Envíos a todo México
+    </div>
+  </div>
+</footer>
+
+<!-- PRODUCT DETAIL VIEW -->
+<div class="detail-view" id="detailView">
+  <div class="detail-header">
+    <button class="detail-back" onclick="closeDetail()">
+      <i class="fa-solid fa-arrow-left"></i> Regresar
+    </button>
+    <div class="detail-logo">Luxera<span>&Outfits</span></div>
+    <div style="width:80px"></div>
+  </div>
+
+  <div class="detail-body">
+    <div class="detail-gallery">
+      <div class="detail-main-img">
+        <img id="detailMainImg" src="" alt="" />
+      </div>
+      <div class="detail-thumbs" id="detailThumbs"></div>
+    </div>
+
+    <div class="detail-info">
+      <div class="detail-cat" id="detailCat"></div>
+      <h1 class="detail-title" id="detailTitle"></h1>
+      <p class="detail-desc" id="detailDesc"></p>
+      <div class="detail-price" id="detailPrice"></div>
+      <a href="https://wa.link/sgd8bb" target="_blank" class="detail-buy" id="detailBuy">
+        <i class="fa-brands fa-whatsapp"></i> ¡LA QUIERO!
+      </a>
+      <div class="detail-share">
+        <span>Compartir</span>
+        <a href="https://www.instagram.com/luxera_mx/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61587248820048" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://wa.link/sgd8bb" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <footer style="margin-top:40px">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Luxera<span>&Outfits</span></div>
+        <p>Jerseys premium de tus equipos favoritos. Envíos a todo México.</p>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/luxera_mx/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=61587248820048" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.link/sgd8bb" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:emilianogd24@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="https://wa.link/sgd8bb" target="_blank"><i class="fa-brands fa-whatsapp" style="color:var(--gold);margin-right:6px"></i>WhatsApp</a></li>
+          <li><a href="mailto:emilianogd24@gmail.com"><i class="fa-solid fa-envelope" style="color:var(--gold);margin-right:6px"></i>emilianogd24@gmail.com</a></li>
+          <li><a href="https://www.instagram.com/luxera_mx/" target="_blank"><i class="fa-brands fa-instagram" style="color:var(--gold);margin-right:6px"></i>@luxera_mx</a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61587248820048" target="_blank"><i class="fa-brands fa-facebook-f" style="color:var(--gold);margin-right:6px"></i>Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Luxera&Outfits.</p>
+      <div class="shipping-badge"><i class="fa-solid fa-truck"></i> Envíos a todo México</div>
+    </div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
